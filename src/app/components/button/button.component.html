@@ -1,0 +1,6 @@
+<button [ngStyle]="{'background-color': color}" class="btn" (click)="onClick()">
+<!-- [ngStyle] here is a Directive used to set custom CSS on a reusable component. the color input is declared 
+    in the button.components file and the color is set in header.component.html, where the button component is embedded.-->
+<!-- (click) is an event listener. it has to be added to the component class in the button.component file. -->
+    {{ text }}
+</button>
