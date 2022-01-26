@@ -6,4 +6,4 @@ export interface Task {
     reminder: boolean;
 }
 
-//this file defines the data types of the json data in the mock-tasks.ts file
+//this interface file defines the data types of the json data in the mock-tasks.ts file

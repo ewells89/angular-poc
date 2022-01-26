@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Task} from '../../Task';
-  // this is importing the interface for tasks. this is because whenever a task is defined we want to use the interface.
+  // this is importing the interface for tasks. this is because whenever a task is defined 
+  // we want to use the interface.
 import {TASKS} from '../../mock-tasks';
   // this brings in the mock json data for the tasks. this would normally be data from the backend.
 
