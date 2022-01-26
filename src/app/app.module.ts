@@ -8,6 +8,11 @@ import { ButtonComponent } from './components/button/button.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 
+// import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome';
+// import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +23,15 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
+    // FontAwesomeModule,
+
+    AngularFontAwesomeModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

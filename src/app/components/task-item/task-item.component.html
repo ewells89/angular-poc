@@ -1,1 +1,11 @@
-<p>task-item works!</p>
+<div class="task">
+    <h3>{{ task.text }} 
+        <!-- <fa-icon [icon]="faTimes"></fa-icon> -->
+        <!-- use the icon with the fa-icon tag, bind it to the icon with the property defined in the component Class.-->
+        <fa name="times" [ngStyle]="{'color':'red'}"></fa>
+        <!-- ngStyle directive to set the styling for the icon in-line. -->
+        
+        
+    </h3>
+    <p>{{ task.day }}</p>
+</div>
