@@ -33,4 +33,10 @@ export class TasksComponent implements OnInit {
 
   }
 
+  deleteTask(task: Task){
+    this.taskService.deleteTask(task).subscribe(() => (this.tasks = this.tasks.filter(t => t.id ! === task.id)))
+    // here the service method is being called to delete the record.
+    // the delete service is defined in the task.service.ts file.
+  }
+
 }

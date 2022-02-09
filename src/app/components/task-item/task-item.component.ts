@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // added Input 
 import { Task } from 'src/app/Task';
 // imported the task interface to define the task property by this interface
@@ -16,9 +16,13 @@ export class TaskItemComponent implements OnInit {
   // here we've set the data type of a task as Task, which is our data typed interface for the TASKS array.
   // faTimes = faTimes;
   // here we are defining the imported faTimes icon as a property of the component.
+  @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter
   constructor() { }
 
   ngOnInit() {
   }
 
+  onDelete(task){
+    this.onDeleteTask.emit(task);
+  }
 }
