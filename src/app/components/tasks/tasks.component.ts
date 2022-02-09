@@ -24,9 +24,13 @@ export class TasksComponent implements OnInit {
   // private indicates the argument is only used in this constructor
   ngOnInit():void {
     // void here means that this particular service doesn't return anything
-    this.tasks = this.taskService.getTasks()
+    // this.tasks = this.taskService.getTasks()
     // this sets this.tasks, which was set as an empty array above on line 17, to whatever is returned by the taskService method getTasks()
     // !!! if dealing with asynchronous data fetched from a server, observables should be used instead of this method.
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks))
+    // to use an observable, you have to subscribe to it. this works like a promise
+    // inside the arrow function you set the return value and set it equal to the tasks that are returned from the observable.
+
   }
 
 }
