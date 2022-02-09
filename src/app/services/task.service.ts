@@ -10,13 +10,12 @@ import {TASKS} from '../mock-tasks';
   providedIn: 'root'
 })
 export class TaskService {
-
-  constructor() { }
-
+  private apiUrl = 'http://localhost:5000/tasks'
+  // this property is for the url that the new http client will be using
+  constructor(private http:HttpClient) { }
+  // this argument brings the service into the constructor. this allows us to use this.http and whatever methods are available.
   getTasks(): Observable<Task[]>{
-    // return TASKS;
-    const tasks = of(TASKS);
-    return tasks;
+    return this.http.get<Task[]>(this.apiUrl);
   }
   // this method returns the tasks. the data type is defined as the Task array.
   // the task array is wrapped in the observable
