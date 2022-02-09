@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
+    // declarations are for components
     AppComponent,
     HeaderComponent,
     ButtonComponent,
@@ -22,12 +24,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     TaskItemComponent
   ],
   imports: [
+    // imports are for modules
     BrowserModule,
     AppRoutingModule,
-    
     // FontAwesomeModule,
-
-    AngularFontAwesomeModule    
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

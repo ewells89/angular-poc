@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+  // this imports the http client in order to use APIs. angular has this client included.
+  // this must also be added as module in order to be used in the app.module.ts file.
 import { Observable, of } from 'rxjs';
 import {Task} from '../Task';
 import {TASKS} from '../mock-tasks';
