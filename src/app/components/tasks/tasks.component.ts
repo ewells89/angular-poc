@@ -27,16 +27,24 @@ export class TasksComponent implements OnInit {
     // this.tasks = this.taskService.getTasks()
     // this sets this.tasks, which was set as an empty array above on line 17, to whatever is returned by the taskService method getTasks()
     // !!! if dealing with asynchronous data fetched from a server, observables should be used instead of this method.
-    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks))
+    this.taskService
+      .getTasks()
+      .subscribe(
+        (tasks) => (this.tasks = tasks))
     // to use an observable, you have to subscribe to it. this works like a promise
     // inside the arrow function you set the return value and set it equal to the tasks that are returned from the observable.
 
   }
 
   deleteTask(task: Task){
-    this.taskService.deleteTask(task).subscribe(() => (this.tasks = this.tasks.filter(t => t.id ! === task.id)))
+    this.taskService
+      .deleteTask(task)
+      .subscribe(
+        () => (this.tasks = this.tasks.filter(t => t.id !== task.id)))
     // here the service method is being called to delete the record.
     // the delete service is defined in the task.service.ts file.
+    // the subscribe method for the observable calls the deleteTask function to delete the record from the server.
+    // once complete the deleted record is filtered from the UI.
   }
 
 }
