@@ -55,4 +55,7 @@ export class TasksComponent implements OnInit {
       .subscribe();
   }
 
+  addTask(task:Task){
+    console.log(task);
+  }
 }

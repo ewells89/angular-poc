@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Alert } from 'selenium-webdriver';
+import { Task } from 'src/app/Task';
 
 @Component({
   selector: 'app-add-task',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
+  @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
+  
   // a property for each field in a form should be added to the component class.
   text: string;
   day: string;
@@ -17,6 +21,29 @@ export class AddTaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    if(!this.text){
+      alert('Please add a task.');
+      return;
+    }
+
+    const newTask = {
+      text: this.text,
+      day: this.day,
+      reminder: this.reminder
+    }
+
+    // the event must be emitted to pass the value of the newTask variable back to the parent component.
+
+    this.onAddTask.emit(newTask);
+    // this emits the new task when the onAddTask method is triggered with the new task entered by the user.
+
+    this.text ='';
+    this.day ='';
+    this.reminder=false;
+    // this is to clear the form after
   }
 
 }

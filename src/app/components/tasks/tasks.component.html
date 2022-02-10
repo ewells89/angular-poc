@@ -1,9 +1,16 @@
-<app-add-task></app-add-task>
+<app-add-task
+      (onAddTask)="addTask($event)"
+   >
+   <!-- because 'task' doesn't exist in this component (exists below because of the for loop), -->
+   <!-- use $event to capture the task -->
+</app-add-task>
+
 <app-task-item
       *ngFor="let task of tasks" 
       [task]="task"
       (onDeleteTask)="deleteTask(task)"
       (onToggleReminder)="toggleReminder(task)"
+      
    >
    <!-- ngFor is a directive that functions as a loop-->
    <!-- [task] is a property. it is being set as equal to the individual task of that specific iteration on the loop. -->
