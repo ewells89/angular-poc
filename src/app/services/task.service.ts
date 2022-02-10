@@ -5,6 +5,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Task} from '../Task';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +33,13 @@ export class TaskService {
     // using the delete method from the http client to delete the task with the url specified in the variable above.
   }
 
-  // this method deletes a single task record
+  updateTaskReminder(task: Task): Observable<Task>{
+    const url = `${this.apiUrl}/${task.id}`;
+    // defining the variable with a template literal to determine which specific task to update based on the selected record.
+    return this.http.put<Task>(url, task, httpOptions);
+    // http header added above in httpOptions variable. this is to send the content type in the json format back to db.json
 
+  }
+  
 }
 
