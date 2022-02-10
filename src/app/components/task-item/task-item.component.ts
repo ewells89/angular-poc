@@ -17,6 +17,8 @@ export class TaskItemComponent implements OnInit {
   // faTimes = faTimes;
   // here we are defining the imported faTimes icon as a property of the component.
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter
+  @Output() onToggleReminder: EventEmitter<Task> = new EventEmitter
+  
   constructor() { }
 
   ngOnInit() {
@@ -25,4 +27,9 @@ export class TaskItemComponent implements OnInit {
   onDelete(task){
     this.onDeleteTask.emit(task);
   }
+
+  onToggle(task){
+    this.onToggleReminder.emit(task);
+  }
+
 }

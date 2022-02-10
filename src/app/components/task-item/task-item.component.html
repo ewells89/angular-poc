@@ -1,8 +1,19 @@
-<div class="task">
-    <h3>{{ task.text }} 
+<div 
+    [ngClass]="{ reminder: task.reminder}" 
+    class="task"
+    (dblclick)="onToggle(task)"
+    >
+    <!-- ngClass directive here sets the class 'reminder' if 'task.reminder' is true using implicit logic. -->
+    <!-- 'onToggle' method is defined in the task-item.component file. -->
+    <h3>
+        {{ task.text }} 
         <!-- <fa-icon [icon]="faTimes"></fa-icon> -->
         <!-- use the icon with the fa-icon tag, bind it to the icon with the property defined in the component Class.-->
-        <fa name="times" (click)="onDelete(task)" [ngStyle]="{'color':'firebrick'}"></fa>
+        <fa 
+            name="times" 
+            (click)="onDelete(task)" 
+            [ngStyle]="{'color':'firebrick'}"
+        ></fa>
         <!-- ngStyle directive to set the styling for the icon in-line. -->
         
         

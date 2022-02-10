@@ -44,7 +44,13 @@ export class TasksComponent implements OnInit {
     // here the service method is being called to delete the record.
     // the delete service is defined in the task.service.ts file.
     // the subscribe method for the observable calls the deleteTask function to delete the record from the server.
-    // once complete the deleted record is filtered from the UI.
+    // once complete the deleted record is filtered from the UI by filtering the id of the iteration of the task by the deleted task id
+  }
+
+  toggleReminder(task:Task){
+    task.reminder=!task.reminder;
+    // this sets the value of the reminder key to the opposite of its current value.
+    console.log(task.reminder);
   }
 
 }
