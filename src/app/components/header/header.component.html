@@ -1,8 +1,8 @@
 <header>
     <h1>{{ title }} </h1>
     <app-button 
-        color="dodgerBlue" 
-        text="Add" 
+        color="{{ showAddTask ? 'firebrick' : 'dodgerBlue' }}" 
+        text="{{ showAddTask ? 'Close' : 'Add' }}"
         (btnClick)="toggleAddTask()"
     ></app-button>
     <!--toggleAddTask() is the event being emitted. it must be defined in the header.component file-->
