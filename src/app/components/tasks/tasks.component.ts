@@ -58,7 +58,9 @@ export class TasksComponent implements OnInit {
   addTask(task:Task){
     this.taskService
     .addTask(task)
-    .subscribe(() => this.ngOnInit());
+    .subscribe(
+        (task) => (this.tasks.push(task)        )
+    );
 
     
     // console.log('it worked.');
