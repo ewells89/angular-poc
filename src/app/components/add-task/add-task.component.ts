@@ -39,7 +39,7 @@ export class AddTaskComponent implements OnInit {
 
     this.onAddTask.emit(newTask);
     // this emits the new task when the onAddTask method is triggered with the new task entered by the user.
-
+    
     this.text ='';
     this.day ='';
     this.reminder=false;
