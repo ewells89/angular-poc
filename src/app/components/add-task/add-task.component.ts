@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Alert } from 'selenium-webdriver';
 import { Task } from 'src/app/Task';
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-task',
@@ -18,7 +20,17 @@ export class AddTaskComponent implements OnInit {
   // must be used, which is part of the forms module which isn't included in angular by default.
   // the module is imported in the app.module file.
 
-  constructor() { }
+  showAddTask: boolean;
+  subscription: Subscription;
+
+
+  constructor( private uiService:UiService) { 
+    // to use a service it must be added to the constructor.
+    // below is brought over from header component
+    this.subscription = this.uiService
+    .onToggle()
+    .subscribe(value => this.showAddTask = value)
+  }
 
   ngOnInit() {
   }
